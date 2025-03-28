@@ -1,0 +1,8 @@
+Tabel untuk menentukan produk yang memberikan laba terbesar:
+
+SELECT 
+    product_name,
+    ROUND (SUM(nett_profit),2) AS total_keuntungan
+FROM `Kimia_Farma.rakamin-kf-analytics-4550`
+GROUP BY product_name
+ORDER BY total_keuntungan DESC

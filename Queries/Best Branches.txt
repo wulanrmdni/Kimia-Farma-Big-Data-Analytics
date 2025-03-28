@@ -1,0 +1,10 @@
+Tabel untuk menentukan cabang dengan total keuntungan tertinggi:
+
+SELECT 
+    branch_name,
+    kota,
+    provinsi,
+    ROUND (SUM(nett_profit),2) AS total_keuntungan
+FROM `Kimia_Farma.rakamin-kf-analytics-4550`
+GROUP BY branch_name, kota, provinsi
+ORDER BY total_keuntungan DESC

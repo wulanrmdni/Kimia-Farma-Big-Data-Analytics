@@ -1,0 +1,13 @@
+Tabel untuk mengetahui total laba bersih dari setiap produk dan cabang: 
+
+SELECT 
+    kc.branch_id,
+    kc.branch_name, 
+    p.product_id,
+    p.product_name,
+    ROUND(SUM(ft.nett_profit), 2) AS total_laba_bersih
+FROM `Kimia_Farma.rakamin-kf-analytics-4550` AS ft
+LEFT JOIN `Kimia_Farma.kf_kantor_cabang` AS kc ON ft.branch_id = kc.branch_id
+LEFT JOIN `Kimia_Farma.kf_product` AS p ON ft.product_id = p.product_id
+GROUP BY kc.branch_id, kc.branch_name, p.product_id, p.product_name
+ORDER BY kc.branch_name, p.product_name;

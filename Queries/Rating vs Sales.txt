@@ -1,0 +1,9 @@
+Tabel untuk mengetahui apakah rating transaksi mempengaruhi volume penjualan: 
+
+SELECT 
+    rating_transaksi,
+    COUNT(transaction_id) AS jumlah_transaksi,
+    ROUND (AVG(nett_sales),2) AS rata_rata_penjualan
+FROM `Kimia_Farma.rakamin-kf-analytics-4550`
+GROUP BY rating_transaksi
+ORDER BY rating_transaksi DESC;
