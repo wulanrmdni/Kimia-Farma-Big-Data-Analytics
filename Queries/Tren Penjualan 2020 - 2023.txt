@@ -1,0 +1,8 @@
+Membuat tabel total pendapatan per tahun atau trend penjualan di Kimia Farma: 
+
+SELECT 
+    EXTRACT(YEAR FROM date) AS tahun,
+    ROUND (SUM(nett_sales),2) AS total_pendapatan
+FROM `Kimia_Farma.rakamin-kf-analytics-4550`
+GROUP BY tahun
+ORDER BY tahun DESC;

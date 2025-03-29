@@ -1,0 +1,9 @@
+Indonesia's Geo Map untuk Total Profit Masing-masing Provinsi : 
+
+SELECT 
+    kc.provinsi, 
+    ROUND(SUM(ft.nett_profit), 2) AS total_profit
+FROM `Kimia_Farma.rakamin-kf-analytics-4550` AS ft
+LEFT JOIN `Kimia_Farma.kf_kantor_cabang` AS kc ON ft.branch_id = kc.branch_id
+GROUP BY kc.provinsi
+ORDER BY total_profit DESC;

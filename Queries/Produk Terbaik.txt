@@ -1,4 +1,4 @@
-Tabel untuk menentukan produk yang memberikan laba terbesar:
+Top 10 Produk yang memberikan laba terbesar:
 
 SELECT 
     product_name,
@@ -6,3 +6,4 @@ SELECT
 FROM `Kimia_Farma.rakamin-kf-analytics-4550`
 GROUP BY product_name
 ORDER BY total_keuntungan DESC
+LIMIT 10;

@@ -1,0 +1,12 @@
+Top 10 Total Transaksi Per Cabang dan Per Provinsi: 
+
+SELECT 
+    kc.branch_id, 
+    kc.branch_name, 
+    kc.provinsi, 
+    COUNT(ft.transaction_id) AS total_transaksi
+FROM `Kimia_Farma.rakamin-kf-analytics-4550` AS ft
+LEFT JOIN `Kimia_Farma.kf_kantor_cabang` AS kc ON ft.branch_id = kc.branch_id
+GROUP BY kc.branch_id, kc.branch_name, kc.provinsi
+ORDER BY total_transaksi DESC
+LIMIT 10;

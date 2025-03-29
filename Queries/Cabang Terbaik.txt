@@ -1,4 +1,4 @@
-Tabel untuk menentukan cabang dengan total keuntungan tertinggi:
+Top 10 Cabang dengan total keuntungan tertinggi:
 
 SELECT 
     branch_name,
@@ -8,3 +8,4 @@ SELECT
 FROM `Kimia_Farma.rakamin-kf-analytics-4550`
 GROUP BY branch_name, kota, provinsi
 ORDER BY total_keuntungan DESC
+LIMIT 10;

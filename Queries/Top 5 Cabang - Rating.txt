@@ -1,0 +1,13 @@
+Top 5 Cabang dengan Rating Tertinggi tetapi Rating Transaksi Terendah: 
+
+SELECT 
+    kc.branch_id, 
+    kc.branch_name, 
+    kc.provinsi, 
+    AVG(ft.rating_cabang) AS avg_rating_cabang, 
+    ROUND (AVG(ft.rating_transaksi),3) AS avg_rating_transaksi
+FROM `Kimia_Farma.rakamin-kf-analytics-4550` AS ft
+LEFT JOIN `Kimia_Farma.kf_kantor_cabang` AS kc ON ft.branch_id = kc.branch_id
+GROUP BY kc.branch_id, kc.branch_name, kc.provinsi
+ORDER BY avg_rating_cabang DESC, avg_rating_transaksi ASC
+LIMIT 5;
